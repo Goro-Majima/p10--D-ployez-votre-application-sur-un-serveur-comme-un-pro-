@@ -26,11 +26,10 @@ SECRET_KEY = 'yyc2(f1h74#mrmz2@sgmy_-%b(h(=+)5^auh&o42-3jba!+5@k'
 # SECURITY WARNING: don't run with debug turned on in production!
 if os.environ.get('ENV') == 'PRODUCTION':
     DEBUG = False
-    ALLOWED_HOSTS = ['purbeurre19.herokuapp.com']
 else:
     DEBUG = True
-    ALLOWED_HOSTS = ['127.0.0.1']
-# ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['134.209.82.69']
 
 
 # Application definition
@@ -62,7 +61,7 @@ MIDDLEWARE = [
 
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'purbeurre.urls'
@@ -98,11 +97,11 @@ WSGI_APPLICATION = 'purbeurre.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql', # on utilise l'adaptateur postgresql
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', # on utilise l'adaptateur postgresql
         'NAME': 'purbeurre', # le nom de notre base de données créée précédemment
-        'USER': 'postgres', # attention : remplacez par votre nom d'utilisateur !!
+        'USER': 'mickael', # attention : remplacez par votre nom d'utilisateur !!
         'PASSWORD': 'Lyteemo5',
-        'HOST': '',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -168,6 +167,6 @@ if os.environ.get('ENV') == 'PRODUCTION':
     )
     # Simplified static file serving.
     # https://warehouse.python.org/project/whitenoise/
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
     db_from_env = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(db_from_env)
