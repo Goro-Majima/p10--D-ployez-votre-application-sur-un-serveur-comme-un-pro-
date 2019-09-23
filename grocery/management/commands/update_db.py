@@ -1,3 +1,4 @@
+#!/bin/bash
 #pylint: disable=W0223, C0413, C0103
 """ Python file used once in order to populate data from OFF API """
 import os
