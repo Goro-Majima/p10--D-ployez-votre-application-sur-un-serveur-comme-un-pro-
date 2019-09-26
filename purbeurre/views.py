@@ -27,7 +27,7 @@ def results(request):
         text = request.GET.get('txtSearch')
         product = Product.objects.filter(name=text).first()
         if not product:
-            messages.warning(request, f'veuillez effectuer une autre recherche !')
+            messages.warning(request, f'Veuillez effectuer une autre recherche !')
             return render(request, 'grocery/home.html')
         elif product.nutrigrade == 'a':
             substitute_list = []
